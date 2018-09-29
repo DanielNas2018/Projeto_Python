@@ -1,12 +1,13 @@
 import os
+import socket_v2
 
 clear = lambda: os.system("cls")
 
 while True:
 	print("\n\n-------------------Menu--------------------------")
 	print('''
-		[ 1 ] - Verificar se o IP está ativo
-		[ 2 ] - Segundo numero
+		[ 1 ] - Verificar o IP do dominio
+		[ 2 ] - Verificar o nome da sua Maquina
 		[ 3 ] - Terceiro numero
 		[ 4 ] - Sair do programa''')
 
@@ -15,10 +16,9 @@ while True:
 	clear()
 
 	if opcao == 1:		
-		ip = input("infore o ip que deseja verificar: ")
-		print(ip)
+		socket_v2.Dominio()
 	elif opcao == 2:
-		print("\n\nSegundo numero")
+		socket_v2.nomeMaquina()
 	elif opcao == 3:
 		print("\n\nTerceiro numero")
 	elif (opcao > 4):
