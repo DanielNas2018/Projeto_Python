@@ -8,8 +8,7 @@ while True:
 	print('''
 		[ 1 ] - Verificar o IP do dominio
 		[ 2 ] - Verificar o nome da sua Maquina
-		[ 3 ] - Terceiro numero
-		[ 4 ] - Sair do programa''')
+		[ 3 ] - Sair do programa''')
 
 	opcao =  int(input("\nEscolha a sua opção: "))
 
@@ -19,9 +18,7 @@ while True:
 		socket_v2.Dominio()
 	elif opcao == 2:
 		socket_v2.nomeMaquina()
-	elif opcao == 3:
-		print("\n\nTerceiro numero")
-	elif (opcao > 4):
+	elif (opcao > 3):
 		print("Opção invalida, tente novamente!")
 	else:
 		print("Saindo do programa")
