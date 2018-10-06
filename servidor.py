@@ -4,6 +4,8 @@ import sys
 import pickle
 
 
+
+
 class Servidor():
 
 	def __init__(self, host = "localhost", port=4000):
@@ -22,16 +24,15 @@ class Servidor():
 		aceitar.start()
 
 		processar.daemon = True
-		processar.start()
+		processar.start()	 
 
 		while True:
 			msg = input('->')
-			if msg == 'sair':
+			if msg == 'exit':
 				self.sock.close()
 				sys.exit()
 			else:
 				pass
-
 
 	def msg_to_all(self, msg, cliente):
 		for c in self.clientes:
@@ -63,7 +64,6 @@ class Servidor():
 					except:
 						pass
 
-
-s = Servidor()
+s= Servidor()
 
 
