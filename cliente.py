@@ -17,7 +17,7 @@ class Cliente():
 
 		while True:
 			msg = input('->')
-			if msg != 'sair':
+			if msg != 'exit':
 				self.send_msg(msg)
 			else:
 				self.sock.close()
@@ -36,5 +36,8 @@ class Cliente():
 	def send_msg(self, msg):
 		self.sock.send(pickle.dumps(msg))
 
-c = Cliente()
 
+def Chat():
+	c = Cliente()
+if __name__ =='__main__':
+	Chat()
