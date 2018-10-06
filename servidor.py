@@ -6,7 +6,7 @@ import pickle
 
 class Servidor():
 
-	def __init__(self, host = "localhost", port=3000):
+	def __init__(self, host = "localhost", port=4000):
 
 		self.clientes = []
 
@@ -15,8 +15,8 @@ class Servidor():
 		self.sock.listen(10)
 		self.sock.setblocking(False)
 
-		aceitar = threading.Thread(target = self.aceitarCon)
-		processar = threading.Thread(target = self.processarCon)
+		aceitar = threading.Thread(target=self.aceitarCon)
+		processar = threading.Thread(target=self.processarCon)
 
 		aceitar.daemon = True
 		aceitar.start()
@@ -33,10 +33,10 @@ class Servidor():
 				pass
 
 
-	def msg_toa_all(self, msg, cliente):
+	def msg_to_all(self, msg, cliente):
 		for c in self.clientes:
 			try:
-				if c !=cliente:
+				if c != cliente:
 					c.send(msg)
 			except:
 				self.clientes.remove(c)
@@ -45,7 +45,7 @@ class Servidor():
 		print("aceitarCon Iniciado")
 		while True:
 			try:
-				conn, addr = self.sock.aceitar()
+				conn, addr = self.sock.accept()
 				conn.setblocking(False)
 				self.clientes.append(conn)
 			except:
