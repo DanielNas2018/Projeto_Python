@@ -5,7 +5,7 @@ import pickle
 
 class Cliente():
 
-	def __init__(self , host = "localhost" , port = 3000):
+	def __init__(self , host = "localhost" , port = 4000):
 
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock.connect((str(host), int(port)))
@@ -27,7 +27,7 @@ class Cliente():
 	def msg_recv(self):
 		while True:
 			try:
-				data = self.sock.recv(10)
+				data = self.sock.recv(1024)
 				if data:
 					print(pickle.loads(data))
 			except:
