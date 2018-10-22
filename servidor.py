@@ -8,7 +8,7 @@ import pickle
 
 class Servidor():
 
-	def __init__(self, host = "localhost", port=4000):
+	def servidor_Chamando(self, host, port = 4000):
 
 		self.clientes = []
 
@@ -28,9 +28,11 @@ class Servidor():
 
 		while True:
 			msg = input('->')
-			if msg == 'exit':
+			if msg == 'Exit':
 				self.sock.close()
 				sys.exit()
+			elif msg == 'Menu':
+				projeto.Organiza()			
 			else:
 				pass
 
@@ -43,7 +45,7 @@ class Servidor():
 				self.clientes.remove(c)
 
 	def aceitarCon(self):
-		print("aceitarCon Iniciado")
+		print("\nConexão Iniciada")
 		while True:
 			try:
 				conn, addr = self.sock.accept()
@@ -53,7 +55,7 @@ class Servidor():
 				 pass
 				 
 	def processarCon(self):
-		print("Processar Iniciado")
+		print("\nProcessar Iniciado\n")
 		while True:
 			if len(self.clientes) > 0:
 				for c in self.clientes:
@@ -64,6 +66,16 @@ class Servidor():
 					except:
 						pass
 
-s= Servidor()
+def Servico():
+	try:
+		s = Servidor()
+		s.servidor_Chamando(host = input("\nInforme o numero do IP do Servidor: \n"))
+	except:
+		pass
+if __name__ =='__main__':
+	Servico()
+
+
+
 
 
