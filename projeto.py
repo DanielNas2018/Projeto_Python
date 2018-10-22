@@ -1,17 +1,21 @@
 import os
 import socket_v2
 import cliente
+import servidor
 
 clear = lambda: os.system("cls")
 
 def Organiza():
+
 	while True:
+
 		print("\n\n-------------------Menu--------------------------")
 		print('''
 			[ 1 ] - Verificar o IP do dominio
 			[ 2 ] - Verificar o nome da sua Maquina
-			[ 3 ] - Utilizar o Chat
-			[ 4 ] - Sair do programa''')
+			[ 3 ] - Habilitando o Servidor
+			[ 4 ] - Utilizar o Chat
+			[ 5 ] - Sair do programa''')
 
 		opcao =  int(input("\nEscolha a sua opção: "))
 
@@ -25,16 +29,17 @@ def Organiza():
 
 		elif opcao == 3:
 			while True:
-				print('''Confirme se o servidor está ativo antes de acessar o chat
+				print('''Selecione a opção desejada
 				[ 1 ] - Continuar
 				[ 2 ] - Voltar''')
 
-				opcao =  int(input("\nEscolha a sua opção: "))
+				opcao =  int(input("\nEscolha a sua opção: \n"))
 
 				if opcao == 1:
-					print("Acessando o chat, para sair do chat digite 'exit'")
-					print()
-					cliente.Cliente()
+					print('''\nAcessando o servidor!!!\nPara fechar o servidor digite "Exit"\nVoltar ao menu principal digite "Menu" ''')
+					print()									
+					servidor.Servico()		
+						
 
 				elif(opcao > 2):
 					print("\nOpção invalida, tente novamente!\n")
@@ -43,7 +48,27 @@ def Organiza():
 					break
 					o = Organiza()
 
-		elif (opcao > 4):
+		elif opcao == 4:
+			while True:
+				print('''Selecione a opção desejada
+				[ 1 ] - Continuar
+				[ 2 ] - Voltar''')
+
+				opcao =  int(input("\nEscolha a sua opção: \n"))
+
+				if opcao == 1:
+					print("\nAcessando o chat, para fechar o chat digite 'Exit'\n")
+					print()
+					cliente.Chat()
+
+				elif(opcao > 2):
+					print("\nOpção invalida, tente novamente!\n")
+				else:
+					print("\nVoltando para o Menu\n")
+					break
+					o = Organiza()
+
+		elif (opcao > 5):
 			print("\nOpção invalida, tente novamente!\n")
 		else:
 			print("\nSaindo do programa\n")
