@@ -17,7 +17,8 @@ class Cliente():
 		msg_recv.start()
 
 		while True:
-			msg = input('->')
+			nomeMaquina = socket.gethostname()
+			msg = input(nomeMaquina + ' ->')
 			if msg != 'Exit':
 				self.send_msg(msg)				
 			else:
