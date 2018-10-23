@@ -28,7 +28,9 @@ def Organiza():
 			socket_v2.nomeMaquina()
 
 		elif opcao == 3:
+
 			while True:
+
 				print('''Selecione a opção desejada
 				[ 1 ] - Continuar
 				[ 2 ] - Voltar''')
@@ -36,17 +38,18 @@ def Organiza():
 				opcao =  int(input("\nEscolha a sua opção: \n"))
 
 				if opcao == 1:
-					print('''\nAcessando o servidor!!!\nPara fechar o servidor digite "Exit"\nVoltar ao menu principal digite "Menu" ''')
-					print()									
-					servidor.Servico()		
-						
+					print('''\nAcessando o Servidor!!!\nPara fechar o servidor digite "Exit"\nVoltar ao menu principal digite "Menu" ''')
+					print()					
+					servidor.Servico()
+					break
+
 
 				elif(opcao > 2):
 					print("\nOpção invalida, tente novamente!\n")
 				else:
 					print("\nVoltando para o Menu\n")
 					break
-					o = Organiza()
+					
 
 		elif opcao == 4:
 			while True:
@@ -60,13 +63,14 @@ def Organiza():
 					print("\nAcessando o chat, para fechar o chat digite 'Exit'\n")
 					print()
 					cliente.Chat()
+					break
 
 				elif(opcao > 2):
 					print("\nOpção invalida, tente novamente!\n")
 				else:
 					print("\nVoltando para o Menu\n")
 					break
-					o = Organiza()
+					
 
 		elif (opcao > 5):
 			print("\nOpção invalida, tente novamente!\n")
