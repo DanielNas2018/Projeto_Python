@@ -39,11 +39,9 @@ def Organiza():
 
 				if opcao == 1:
 					print('''\nAcessando o Servidor!!!\nPara fechar o servidor digite "Exit"\nVoltar ao menu principal digite "Menu" ''')
-					print()					
+					print()									
 					servidor.Servico()
 					break
-
-
 				elif(opcao > 2):
 					print("\nOpção invalida, tente novamente!\n")
 				else:
@@ -61,7 +59,7 @@ def Organiza():
 
 				if opcao == 1:
 					print("\nAcessando o chat, para fechar o chat digite 'Exit'\n")
-					print()
+					print()					
 					cliente.Chat()
 					break
 
