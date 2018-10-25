@@ -6,7 +6,7 @@ import projeto
 
 class Cliente():
 
-	def cliente_Chamando(self ,host, nome, port = 4000 ):
+	def cliente_Chamando(self ,host, nome, port ):
 
 		self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock.connect((str(host), int(port)))
@@ -15,10 +15,11 @@ class Cliente():
 		msg_recv.start()
 		self.nome = nome
 
+		print("\nCliente Ativo\n")
 		while True:
 			msg = input()
 			if msg != 'Exit':
-				self.send_msg(nome + " - "+ msg)				
+				self.send_msg(nome + ": "+ msg)				
 			else:
 				self.sock.close()				
 				sys.exit()
@@ -41,7 +42,8 @@ class Cliente():
 def Chat():
 	try:	
 		c = Cliente()			
-		c.cliente_Chamando(host = input("\nInforme o numero do IP do Cliente: \n"), nome = input("\nInforme o seu nome: "))		
+		c.cliente_Chamando(host = input("\nInforme o numero do IP do Cliente: \n"),
+	    nome = input("\nInforme o seu nome: "), port = input("\nInforme o numero da porta: \n"))
 	except:
 		pass
 
