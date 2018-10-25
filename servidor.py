@@ -8,7 +8,7 @@ import pickle
 
 class Servidor():
 
-	def servidor_Chamando(self, host, port = 4000):
+	def servidor_Chamando(self, port, host = 'localhost' ):
 
 		self.clientes = []
 
@@ -26,6 +26,7 @@ class Servidor():
 		processar.daemon = True
 		processar.start()	 
 
+		print("\nServidor Ativo\n")
 		while True:
 			msg = input('->')
 			if msg == 'Exit':
@@ -69,7 +70,7 @@ class Servidor():
 def Servico():
 	try:
 		s = Servidor()
-		s.servidor_Chamando(host = input("\nInforme o numero do IP do Servidor: \n"))
+		s.servidor_Chamando(port = input("\nInforme o numero da Porta: \n"))
 	except:
 		pass
 if __name__ =='__main__':
